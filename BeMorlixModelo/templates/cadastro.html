@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .message a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .message a:hover {
+            text-decoration: underline;
+        }
+
+        /* Flash messages */
+        ul.flash-messages {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 15px;
+            color: red;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro</h2>
+
+        
+
+        <form id="cadastroForm" action="{{ url_for('cadastro') }}" method="POST" novalidate>
+            <div class="form-group">
+                <label for="nomeCadastro">Nome:</label>
+                <input type="text" id="nomeCadastro" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="emailCadastro">Email:</label>
+                <input type="email" id="emailCadastro" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="senhaCadastro">Senha:</label>
+                <input type="password" id="senhaCadastro" name="senha" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmarSenhaCadastro">Confirmar Senha:</label>
+                <input type="password" id="confirmarSenhaCadastro" required>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <p class="message">Já tem uma conta? <a href="{{ url_for('login') }}">Faça login</a></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

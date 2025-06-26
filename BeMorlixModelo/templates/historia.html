@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bermolix - Nossa História</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* RESET BÁSICO */
+        a,
+        button,
+        input,
+        select,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p,
+        div,
+        section,
+        header,
+        footer,
+        nav,
+        ul,
+        li,
+        img,
+        body,
+        html,
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border: none;
+            text-decoration: none;
+            background: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        /* Nova Paleta de Cores */
+        :root {
+            --color-dark-charcoal: #1A1A1A; /* Base escura elegante */
+            --color-light-gray: #F5F5F5;    /* Fundo suave */
+            --color-gold-accent: #D4AF37;   /* Dourado para luxo */
+            --color-pop-accent: #E00078;    /* Magenta vibrante para o pop */
+            --color-red-sale: #E74C3C;      /* Vermelho para destaque de promoção */
+            --color-white: #FFFFFF;
+            --color-text-light: #CCCCCC;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-light-gray);
+            color: var(--color-dark-charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- CABEÇALHO --- */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4%;
+            background-color: var(--color-dark-charcoal);
+            color: var(--color-white);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-gold-accent);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .main-nav {
+            ul {
+                display: flex;
+                gap: 2.5rem;
+            }
+
+            a {
+                color: var(--color-white);
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 600;
+                font-size: 0.95rem;
+                text-transform: uppercase;
+                letter-spacing: 0.8px;
+                position: relative;
+                transition: color 0.3s ease;
+            }
+
+            a::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--color-pop-accent);
+                transform: scaleX(0);
+                transform-origin: bottom left;
+                transition: transform 0.3s ease-out;
+            }
+
+            a:hover::after {
+                transform: scaleX(1);
+            }
+
+            a:hover {
+                color: var(--color-pop-accent);
+            }
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .icon-link {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .icon-link:hover {
+            color: var(--color-gold-accent);
+        }
+
+        /* --- SEÇÃO HERO - HISTÓRIA --- */
+        .history-hero-section {
+            position: relative;
+            height: 60vh; /* Um pouco mais contido */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 8%;
+            background: linear-gradient(to top, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.4) 100%), url('hero-historia-novo.png') center center/cover no-repeat; /* Imagem de fundo para História */
+            color: var(--color-white);
+            text-align: center;
+            overflow: hidden;
+            box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .history-hero-content {
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .history-hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem; /* Ajustado para a página de história */
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--color-gold-accent);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .history-hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--color-text-light);
+        }
+
+        /* --- SEÇÃO DE CONTEÚDO DA HISTÓRIA --- */
+        .history-content-section {
+            padding: 5rem 10%; /* Mais padding para conteúdo textual */
+            text-align: left;
+            background-color: var(--color-white); /* Fundo branco para contraste com texto */
+            color: var(--color-dark-charcoal);
+            max-width: 1200px; /* Limita a largura para melhor leitura */
+            margin: 0 auto; /* Centraliza a seção */
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            margin-top: -3rem; /* Eleva um pouco para sobrepor o hero */
+            position: relative;
+            z-index: 10;
+        }
+
+        .history-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--color-dark-charcoal);
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .history-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background-color: var(--color-pop-accent);
+        }
+
+        .history-paragraph {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .history-highlight {
+            font-weight: 600;
+            color: var(--color-pop-accent);
+        }
+
+        .history-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--color-gold-accent);
+            border-left: 5px solid var(--color-pop-accent);
+            padding-left: 1.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .timeline-section {
+            padding: 4rem 10%;
+            background-color: var(--color-dark-charcoal);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .timeline-section .section-title {
+            color: var(--color-white);
+            margin-bottom: 4rem;
+        }
+        .timeline-section .section-title::after {
+            background-color: var(--color-gold-accent);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            gap: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse; /* Alterna o lado */
+        }
+
+        .timeline-year {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--color-pop-accent);
+            flex-shrink: 0;
+            width: 100px; /* Largura fixa para o ano */
+            text-align: center;
+        }
+
+        .timeline-content {
+            flex-grow: 1;
+            text-align: left;
+            background-color: rgba(255,255,255,0.08);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-gold-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+
+        /* --- Rodapé (Footer) --- */
+        .main-footer {
+            padding: 3rem 4%;
+            text-align: center;
+            background-color: var(--color-dark-charcoal);
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--color-text-light);
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-gold-accent);
+        }
+
+        .social-icons {
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            color: var(--color-text-light);
+            font-size: 1.8rem;
+            margin: 0 0.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--color-pop-accent);
+            transform: translateY(-3px);
+        }
+
+        /* ========================================= */
+        /* --- MEDIA QUERIES (Responsividade) --- */
+        /* ========================================= */
+
+        @media (max-width: 1024px) {
+            .main-header {
+                padding: 1.2rem 3%;
+            }
+            .header-logo {
+                font-size: 2rem;
+            }
+            .main-nav ul {
+                gap: 2rem;
+            }
+            .main-nav a {
+                font-size: 0.9rem;
+            }
+            .header-icons {
+                gap: 1.2rem;
+            }
+            .icon-link {
+                font-size: 1.1rem;
+            }
+
+            .history-hero-section {
+                height: 50vh;
+            }
+            .history-hero-title {
+                font-size: 3rem;
+            }
+            .history-hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .history-content-section {
+                padding: 4rem 8%;
+                margin-top: -2rem;
+            }
+            .history-section-title {
+                font-size: 2.4rem;
+            }
+            .history-quote {
+                font-size: 1.6rem;
+                margin: 2.5rem 0;
+            }
+
+            .timeline-section {
+                padding: 3rem 8%;
+            }
+            .timeline-year {
+                font-size: 2rem;
+                width: 80px;
+            }
+            .timeline-content h3 {
+                font-size: 1.2rem;
+            }
+            .timeline-content p {
+                font-size: 0.9rem;
+            }
+            .timeline-item {
+                gap: 1.5rem;
+            }
+
+            .main-footer {
+                padding: 2.5rem 3%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 1rem 2%;
+            }
+            .header-logo {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 1rem;
+                font-size: 1.8rem;
+            }
+            .main-nav {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            .main-nav ul {
+                justify-content: center;
+                gap: 1rem;
+            }
+            .main-nav a {
+                font-size: 0.85rem;
+            }
+            .header-icons {
+                width: 100%;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .icon-link {
+                font-size: 1rem;
+            }
+
+            .history-hero-section {
+                height: 40vh;
+            }
+            .history-hero-title {
+                font-size: 2.5rem;
+            }
+            .history-hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .history-content-section {
+                padding: 3rem 5%;
+                margin-top: -1.5rem;
+            }
+            .history-section-title {
+                font-size: 2rem;
+            }
+            .history-paragraph {
+                font-size: 0.9rem;
+            }
+            .history-quote {
+                font-size: 1.4rem;
+                margin: 2rem 0;
+                padding-left: 1rem;
+            }
+
+            .timeline-section {
+                padding: 2.5rem 5%;
+            }
+            .timeline-item {
+                flex-direction: column; /* Empilha no mobile */
+                text-align: center;
+                gap: 1rem;
+            }
+            .timeline-item:nth-child(even) {
+                flex-direction: column; /* Garante que continua empilhado */
+            }
+            .timeline-year {
+                width: auto; /* Remove largura fixa */
+                margin-bottom: 0.5rem;
+            }
+            .timeline-content {
+                text-align: center;
+                padding: 1rem;
+            }
+            .timeline-content h3 {
+                font-size: 1.1rem;
+            }
+            .timeline-content p {
+                font-size: 0.85rem;
+            }
+
+            .main-footer {
+                padding: 2rem 2%;
+            }
+            .footer-links a {
+                margin: 0 0.8rem;
+            }
+            .social-icons a {
+                font-size: 1.5rem;
+                margin: 0 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-logo {
+                font-size: 1.6rem;
+            }
+            .main-nav a {
+                font-size: 0.8rem;
+            }
+            .history-hero-title {
+                font-size: 2rem;
+            }
+            .history-hero-subtitle {
+                font-size: 0.85rem;
+            }
+            .history-section-title {
+                font-size: 1.8rem;
+            }
+            .history-paragraph {
+                font-size: 0.85rem;
+            }
+            .history-quote {
+                font-size: 1.2rem;
+            }
+            .timeline-year {
+                font-size: 1.8rem;
+            }
+            .timeline-content h3 {
+                font-size: 1rem;
+            }
+            .timeline-content p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <a href="{{ url_for('index') }}" class="header-logo">BERMOLIX</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="{{ url_for('index') }}">INÍCIO</a></li>
+                <li><a href="{{ url_for('colecoes') }}">COLEÇÕES</a></li>
+                <li><a href="{{ url_for('historia') }}">HISTÓRIA</a></li>
+                <li><a href="{{ url_for('outlet') }}">OUTLET</a></li>
+                <li><a href="#">CONTATO</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
+            <a href="#" class="icon-link"><i class="fas fa-user"></i></a>
+            <a href="{{ url_for('carrinho') }}" class="icon-link"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+
+    <section class="history-hero-section">
+        <div class="history-hero-content">
+            <h1 class="history-hero-title">NOSSA TRAJETÓRIA DE BRILHO</h1>
+            <p class="history-hero-subtitle">A história por trás da marca que reinventa o glamour.</p>
+        </div>
+    </section>
+
+    <section class="history-content-section">
+        <h2 class="history-section-title">A Centelha Inicial</h2>
+        <p class="history-paragraph">
+            A Bermolix nasceu de um sonho audacioso em <span class="history-highlight">2008</span>, nas vibrantes ruas de Milão, coração da moda e do design. Sua fundadora, <span class="history-highlight">Donatella Vesperi</span>, uma visionária com paixão incondicional por óculos e uma obsessão pelo glamour, percebeu uma lacuna no mercado: peças que unissem a alta-costura com a energia e a ousadia da cultura pop. Ela queria criar óculos que não fossem apenas acessórios, mas verdadeiras extensões da personalidade de quem os usa.
+        </p>
+        <p class="history-paragraph">
+            Começando em um pequeno ateliê, Donatella dedicou-se à pesquisa de materiais inovadores e ao desenvolvimento de designs que desafiavam o convencional. Cada peça era criada com a meticulosidade de uma joia, mas com a atitude de uma estrela de rock. O objetivo era claro: óculos que fossem sinônimo de luxo, exclusividade e um inconfundível toque de rebeldia chique.
+        </p>
+
+        <h2 class="history-section-title">O Ponto de Virada</h2>
+        <p class="history-paragraph">
+            A ascensão da Bermolix começou com o lançamento da coleção "Aurora Boreal" em <span class="history-highlight">2012</span>. Inspirada nas luzes do norte e na extravagância dos palcos globais, essa coleção introduziu armações ousadas, cores vibrantes e detalhes em cristais que capturavam a luz de forma espetacular. Rapidamente, celebridades e influenciadores abraçaram a marca, transformando os óculos Bermolix em itens de desejo. Não era apenas sobre ver, era sobre ser visto.
+        </p>
+        <p class="history-paragraph">
+            A marca se tornou a favorita das "Divas Pop", ícones de estilo que ditavam tendências com sua confiança e originalidade. A Bermolix não apenas seguiu as tendências, ela as criou, sempre um passo à frente, combinando a arte da ótica com a energia efervescente da música e da cultura contemporânea.
+        </p>
+
+        <blockquote class="history-quote">
+            "Na Bermolix, acreditamos que a visão vai além dos olhos. É uma declaração. É a sua arte. É quem você decide ser a cada olhar."
+            <br> - Donatella Vesperi, Fundadora
+        </blockquote>
+
+        <h2 class="history-section-title">Legado e Futuro</h2>
+        <p class="history-paragraph">
+            Hoje, a Bermolix continua a ser um farol de inovação e estilo no universo dos óculos de luxo. Mantemos nosso compromisso inabalável com a qualidade artesanal, a sustentabilidade e a criação de designs que empoderam. Cada coleção é uma celebração da individualidade, convidando nossos clientes a abraçar sua própria luz e a expressar sua personalidade sem limites.
+        </p>
+        <p class="history-paragraph">
+            Olhamos para o futuro com a mesma paixão do início, explorando novas tecnologias e parcerias criativas, mas sempre fiéis à nossa essência: transformar óculos em peças de arte que brilham tanto quanto as divas que os inspiram. A história da Bermolix é uma jornada contínua de glamour, inovação e a busca incessante pelo brilho único em cada um de nós.
+        </p>
+    </section>
+
+    <section class="timeline-section">
+        <h2 class="section-title">NOSSA LINHA DO TEMPO</h2>
+        <div class="timeline-item">
+            <div class="timeline-year">2008</div>
+            <div class="timeline-content">
+                <h3>Fundação da Bermolix</h3>
+                <p><span class="history-highlight">Donatella Vesperi</span> inicia a marca com a visão de criar óculos que combinam luxo e atitude pop.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2012</div>
+            <div class="timeline-content">
+                <h3>Lançamento da Coleção "Aurora Boreal"</h3>
+                <p>A coleção icônica que catapultou a Bermolix para o estrelato, conquistando o coração de celebridades.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2015</div>
+            <div class="timeline-content">
+                <h3>Expansão Global</h3>
+                <p>Abertura das primeiras boutiques internacionais e início da presença em grandes desfiles de moda.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2019</div>
+            <div class="timeline-content">
+                <h3>Inovação em Materiais</h3>
+                <p>Introdução de tecnologias sustentáveis e materiais eco-friendly nas linhas de produção.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2023</div>
+            <div class="timeline-content">
+                <h3>Parceria com Artistas Pop</h3>
+                <p>Colaborações exclusivas com nomes renomados da música, lançando coleções cápsula de edição limitada.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="main-footer">
+        <div class="footer-links">
+            <a href="#">Sobre Nós</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Serviço</a>
+            <a href="#">FAQ</a>
+        </div>
+        <p class="footer-copyright">&copy; 2025 Bermolix. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

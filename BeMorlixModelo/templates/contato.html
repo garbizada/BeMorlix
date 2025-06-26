@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bermolix - Contato</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* RESET BÁSICO */
+        a, button, input, select, textarea, h1, h2, h3, h4, h5, p, div, section, header, footer, nav, ul, li, img, body, html, * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border: none;
+            text-decoration: none;
+            background: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        /* Nova Paleta de Cores */
+        :root {
+            --color-dark-charcoal: #1A1A1A; /* Base escura elegante */
+            --color-light-gray: #F5F5F5;    /* Fundo suave */
+            --color-gold-accent: #D4AF37;   /* Dourado para luxo */
+            --color-pop-accent: #E00078;    /* Magenta vibrante para o pop */
+            --color-white: #FFFFFF;
+            --color-text-light: #CCCCCC;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-light-gray);
+            color: var(--color-dark-charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+            display: flex; /* Adicionado para layout flexbox */
+            flex-direction: column; /* Conteúdo em coluna */
+            min-height: 100vh; /* Ocupa a altura total da viewport */
+        }
+
+        /* --- CABEÇALHO (DO SEU INDEX.HTML) --- */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4%;
+            background-color: var(--color-dark-charcoal);
+            color: var(--color-white);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-gold-accent);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 2.5rem;
+        }
+        .main-nav a {
+            color: var(--color-white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-pop-accent);
+            transform: scaleX(0);
+            transform-origin: bottom left;
+            transition: transform 0.3s ease-out;
+        }
+        .main-nav a:hover::after {
+            transform: scaleX(1);
+        }
+        .main-nav a:hover {
+            color: var(--color-pop-accent);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .icon-link {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .icon-link:hover {
+            color: var(--color-gold-accent);
+        }
+
+        /* --- ESTILOS ESPECÍFICOS DA PÁGINA DE CONTATO --- */
+        .page-content {
+            flex-grow: 1; /* Faz o conteúdo principal ocupar o espaço restante */
+            padding: 4rem 4%;
+            background-color: var(--color-light-gray);
+        }
+
+        .contact-container {
+            background-color: var(--color-white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--color-dark-charcoal);
+            margin-bottom: 2.5rem;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-pop-accent);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Duas colunas para formulário e info/mapa */
+            gap: 40px;
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .contact-form, .contact-info {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .contact-form h2, .contact-info h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: var(--color-dark-charcoal);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--color-gold-accent);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: var(--color-dark-charcoal);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-pop-accent);
+            box-shadow: 0 0 0 3px rgba(224, 0, 120, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical; /* Permite redimensionar verticalmente */
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background-color: var(--color-pop-accent);
+            color: var(--color-white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            padding: 1rem 3rem;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            width: auto; /* Para não ocupar 100% da largura, se desejar */
+            display: inline-block; /* Para aplicar padding e transformar */
+            margin-top: 15px;
+        }
+
+        .submit-button:hover {
+            background-color: var(--color-gold-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Informações de Contato */
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #444;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info p i {
+            color: var(--color-pop-accent);
+            font-size: 1.2rem;
+            width: 25px; /* Para alinhar os ícones */
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: var(--color-dark-charcoal);
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: var(--color-pop-accent);
+        }
+
+        .map-container {
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden; /* Garante que o iframe respeite o border-radius */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+
+        /* --- Rodapé (Footer) - DO SEU INDEX.HTML --- */
+        .main-footer {
+            padding: 3rem 4%;
+            text-align: center;
+            background-color: var(--color-dark-charcoal);
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--color-text-light);
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-gold-accent);
+        }
+
+        .social-icons {
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            color: var(--color-text-light);
+            font-size: 1.8rem;
+            margin: 0 0.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--color-pop-accent);
+            transform: translateY(-3px);
+        }
+
+        /* ========================================= */
+        /* --- MEDIA QUERIES (Responsividade) --- */
+        /* ========================================= */
+
+        @media (max-width: 1024px) {
+            .main-header {
+                padding: 1.2rem 3%;
+            }
+            .header-logo {
+                font-size: 2rem;
+            }
+            .main-nav ul {
+                gap: 2rem;
+            }
+            .main-nav a {
+                font-size: 0.9rem;
+            }
+            .header-icons {
+                gap: 1.2rem;
+            }
+            .icon-link {
+                font-size: 1.1rem;
+            }
+
+            .contact-container {
+                padding: 2.5rem;
+                max-width: 900px;
+            }
+            .contact-container h1 {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+            }
+            .contact-grid {
+                gap: 30px;
+            }
+            .contact-form, .contact-info {
+                padding: 20px;
+            }
+            .contact-form h2, .contact-info h2 {
+                font-size: 1.6rem;
+            }
+            .form-group input,
+            .form-group textarea {
+                padding: 10px;
+                font-size: 0.95rem;
+            }
+            .submit-button {
+                font-size: 1rem;
+                padding: 0.9rem 2.5rem;
+            }
+            .map-container iframe {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 1rem 2%;
+            }
+            .header-logo {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 1rem;
+                font-size: 1.8rem;
+            }
+            .main-nav {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            .main-nav ul {
+                justify-content: center;
+                gap: 1rem;
+            }
+            .main-nav a {
+                font-size: 0.85rem;
+            }
+            .header-icons {
+                width: 100%;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .icon-link {
+                font-size: 1rem;
+            }
+
+            .page-content {
+                padding: 3rem 2%;
+            }
+            .contact-container {
+                padding: 2rem;
+            }
+            .contact-container h1 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr; /* Uma única coluna em telas menores */
+                gap: 25px;
+                margin-top: 2rem;
+            }
+            .contact-form, .contact-info {
+                padding: 20px;
+            }
+            .contact-form h2, .contact-info h2 {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+            .submit-button {
+                width: 100%; /* Botão ocupa a largura total */
+                padding: 0.8rem 2rem;
+            }
+            .map-container {
+                margin-top: 20px;
+            }
+            .map-container iframe {
+                height: 200px;
+            }
+
+            .main-footer {
+                padding: 2rem 2%;
+            }
+            .footer-links a {
+                margin: 0 0.8rem;
+            }
+            .social-icons a {
+                font-size: 1.5rem;
+                margin: 0 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-logo {
+                font-size: 1.6rem;
+            }
+            .main-nav a {
+                font-size: 0.8rem;
+            }
+            .contact-container h1 {
+                font-size: 1.8rem;
+            }
+            .contact-container {
+                padding: 1.5rem;
+            }
+            .contact-form, .contact-info {
+                padding: 15px;
+            }
+            .form-group input,
+            .form-group textarea {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            .contact-info p {
+                font-size: 0.9rem;
+            }
+            .contact-info p i {
+                font-size: 1rem;
+            }
+            .submit-button {
+                font-size: 0.9rem;
+                padding: 0.7rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <a href="{{ url_for('index') }}" class="header-logo">BERMOLIX</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="{{ url_for('index') }}">INÍCIO</a></li>
+                <li><a href="{{ url_for('colecoes') }}">COLEÇÕES</a></li>
+                <li><a href="{{ url_for('outlet') }}">OUTLET</a></li>
+                <li><a href="{{ url_for('historia') }}">SOBRE NÓS</a></li>
+                <li><a href="{{ url_for('contato') }}">CONTATO</a></li> </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
+            <a href="{{ url_for('escolha') }}" class="icon-link"><i class="fas fa-user"></i></a>
+            <a href="{{ url_for('carrinho') }}" class="icon-link"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+
+    <section class="page-content">
+        <div class="contact-container">
+            <h1>ENTRE EM CONTATO CONOSCO</h1>
+
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h2>Envie-nos uma Mensagem</h2>
+                    <form action="#" method="POST"> <div class="form-group">
+                            <label for="name">Nome Completo:</label>
+                            <input type="text" id="name" name="name" required placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Assunto:</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Motivo do contato">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Sua Mensagem:</label>
+                            <textarea id="message" name="message" required placeholder="Escreva sua mensagem aqui..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">ENVIAR MENSAGEM</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h2>Nossas Informações</h2>
+                    <p><i class="fas fa-map-marker-alt"></i> universidade catolica de brasilia</p>
+                    <p><i class="fas fa-phone"></i> (61) 4002-8922</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:contato@bermolix.com">contato@bermolix.com</a></p>
+                    <p><i class="fas fa-clock"></i> Segunda a Sexta: 9h - 18h</p>
+
+                    <div class="map-container">
+                        <iframe
+                            src="https://maps.app.goo.gl/A49UvVQ4w6QmsEVt5"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-links">
+            <a href="historia.html">Sobre Nós</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Serviço</a>
+            <a href="#">FAQ</a>
+        </div>
+        <p class="footer-copyright">&copy; 2025 Bermolix. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
